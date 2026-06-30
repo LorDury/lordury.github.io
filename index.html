@@ -1,57 +1,405 @@
 <!DOCTYPE html>
-<!-- rebuild -->
+<html lang="en" data-theme="dark">
 
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lordury – Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-<link rel="stylesheet" href="style.css">
+    <title>Karel "Lordury" Durovic | Automation Engineer</title>
 
+    <meta name="description"
+        content="Automation Engineer, AI Coach, IT Technician and creator of practical tools that remove repetitive work.">
+
+    <!-- PicoCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <header>
-    <h1>👋 Hello, I'm Karel (Lordury)</h1>
-    <p>
-      IT technician focused on Windows automation, scripting, 3D printing experiments,  
-      and AI coaching (Copilot 365, Agentic AI, Intro to AI).  
-      Humble me trying to present some achievements without breaking anything.
-    </p>
-  </header>
 
-  <nav>
-    <a href="projects.html">Projects</a>
-    <a href="ai-coaching.html">AI Coaching</a>
-    <a href="3d-printing.html">3D Printing</a>
-    <a href="about.html">About Me</a>
-  </nav>
+    <!-- ========================= -->
+    <!-- Navigation -->
+    <!-- ========================= -->
 
-  <main>
-    <h2>Featured Highlights</h2>
-    <p>Here’s a quick look at what I do — more details inside the pages above.</p>
+    <header class="site-header">
 
-    <div class="card-grid">
-      <div class="card">
-        <h3>Automation & Scripting</h3>
-        <p>PowerShell, BAT, Python — tools that make life easier (or at least less painful).</p>
-      </div>
+        <nav class="container">
 
-      <div class="card">
-        <h3>AI Coaching</h3>
-        <p>Copilot 365, Agentic AI, and practical intro to AI for normal humans.</p>
-      </div>
+            <div class="logo">
+                <a href="index.html">
+                    <strong>Lordury</strong>
+                </a>
+            </div>
 
-      <div class="card">
-        <h3>3D Printing Experiments</h3>
-        <p>Useful prints, questionable prototypes, and occasional plastic disasters.</p>
-      </div>
-    </div>
-  </main>
+            <ul>
 
-  <footer>
-    <small>© 2026 Karel Durovic — MIT licensed, because I’m not here to fight lawyers.</small>
-  </footer>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="ai.html">AI Coaching</a></li>
+                <li><a href="printing.html">3D Printing</a></li>
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- ========================= -->
+        <!-- Hero -->
+        <!-- ========================= -->
+
+        <section class="hero container">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    IT Technician • Automation Engineer • AI Coach
+                </p>
+
+                <h1>
+                    Karel
+                    <span>"Lordury"</span>
+                    Durovic
+                </h1>
+
+                <p class="hero-text">
+
+                    I build practical tools that remove repetitive work,
+                    simplify everyday IT, and help people use AI with confidence.
+
+                </p>
+
+                <blockquote>
+
+                    Technology should remove frustration,
+                    not create it.
+
+                </blockquote>
+
+                <div class="hero-buttons">
+
+                    <a href="projects.html" role="button">
+                        View Projects
+                    </a>
+
+                    <a href="about.html" role="button" class="secondary outline">
+                        About Me
+                    </a>
+
+                </div>
+
+            </div>
+
+            <aside class="terminal">
+
+                <div class="terminal-header">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <pre><code>$ python automation.py
+
+✔ Reading data...
+
+✔ Detecting repetitive tasks...
+
+✔ Building workflow...
+
+✔ Saving 4 hours every week...
+
+Mission accomplished.</code></pre>
+
+            </aside>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- Statistics -->
+        <!-- ========================= -->
+
+        <section class="stats container">
+
+            <header>
+
+                <h2>Some Numbers</h2>
+
+                <p>
+                    A quick overview of what I've been working on.
+                </p>
+
+            </header>
+
+            <div class="stats-grid">
+
+                <article>
+
+                    <h3>8+</h3>
+                    <p>Years in IT</p>
+
+                </article>
+
+                <article>
+
+                    <h3>50+</h3>
+                    <p>Automation Projects</p>
+
+                </article>
+
+                <article>
+
+                    <h3>300+</h3>
+                    <p>People Trained</p>
+
+                </article>
+
+                <article>
+
+                    <h3>∞ ☕</h3>
+                    <p>Coffee Consumed</p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- Featured Areas -->
+        <!-- ========================= -->
+
+        <section class="container">
+
+            <header>
+
+                <h2>What I Do</h2>
+
+            </header>
+
+            <div class="cards">
+
+                <article class="feature-card">
+
+                    <div class="card-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Automation & Scripting
+                    </h3>
+
+                    <p>
+
+                        Building Python, PowerShell,
+                        Batch and Power Automate solutions
+                        that eliminate repetitive work.
+
+                    </p>
+
+                    <footer>
+
+                        <a href="projects.html">
+                            Explore →
+                        </a>
+
+                    </footer>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="card-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI Coaching
+                    </h3>
+
+                    <p>
+
+                        Helping people understand,
+                        adopt and use AI tools effectively,
+                        including Microsoft Copilot and Agentic AI.
+
+                    </p>
+
+                    <footer>
+
+                        <a href="ai.html">
+                            Learn More →
+                        </a>
+
+                    </footer>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="card-icon">
+                        🖨️
+                    </div>
+
+                    <h3>
+                        3D Printing
+                    </h3>
+
+                    <p>
+
+                        Designing and printing practical tools,
+                        organizers and custom solutions
+                        that solve everyday problems.
+
+                    </p>
+
+                    <footer>
+
+                        <a href="printing.html">
+                            View Projects →
+                        </a>
+
+                    </footer>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- Skills -->
+        <!-- ========================= -->
+
+        <section class="container">
+
+            <header>
+
+                <h2>Skills</h2>
+
+            </header>
+
+            <div class="badges">
+
+                <span>Python</span>
+                <span>PowerShell</span>
+                <span>Batch</span>
+                <span>Windows</span>
+                <span>Power Automate</span>
+                <span>Power Apps</span>
+                <span>Microsoft Copilot</span>
+                <span>Agentic AI</span>
+                <span>Workflow Automation</span>
+                <span>Git</span>
+                <span>3D Printing</span>
+                <span>AI Coaching</span>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- About Preview -->
+        <!-- ========================= -->
+
+        <section class="container about-preview">
+
+            <div>
+
+                <h2>About Me</h2>
+
+                <p>
+
+                    I'm an IT Technician at Accenture with a passion for
+                    automation, scripting, and making technology easier to use.
+
+                </p>
+
+                <p>
+
+                    Whether it's a Python script,
+                    a PowerShell utility,
+                    a Power Automate flow,
+                    or an AI demonstration,
+                    I enjoy building practical solutions that save people time.
+
+                </p>
+
+                <p>
+
+                    Outside of work you'll usually find me experimenting with
+                    AI, creating YouTube content, designing something for my
+                    3D printer, or trying to optimize one more workflow.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- Current Focus -->
+        <!-- ========================= -->
+
+        <section class="container">
+
+            <header>
+
+                <h2>Currently Working On</h2>
+
+            </header>
+
+            <ul class="focus-list">
+
+                <li>AI demonstrations</li>
+                <li>Windows automation tools</li>
+                <li>Power Platform solutions</li>
+                <li>3D printing experiments</li>
+                <li>Growing my YouTube channels</li>
+                <li>Improving this portfolio</li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <p>
+
+                Built with HTML, PicoCSS,
+                coffee,
+                and occasional frustration.
+
+            </p>
+
+            <p>
+
+                © 2026
+                Karel "Lordury" Durovic
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="js/main.js"></script>
+
 </body>
+
 </html>
