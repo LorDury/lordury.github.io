@@ -1,14 +1,81 @@
+/* ------------------------------
+   Global layout + dark mode
+--------------------------------*/
+
+:root {
+  --accent: #4cc2ff;
+  --accent-hover: #82d9ff;
+  --bg-dark: #0d1117;
+  --bg-light: #f5f7fa;
+  --text-dark: #e6edf3;
+  --text-light: #1a1a1a;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+  }
+
+  nav a {
+    color: var(--accent);
+  }
+
+  nav a:hover {
+    color: var(--accent-hover);
+  }
+
+  .card {
+    background: #161b22;
+    border: 1px solid #1f242d;
+  }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background: var(--bg-light);
+    color: var(--text-light);
+  }
+
+  .card {
+    background: white;
+    border: 1px solid #ddd;
+  }
+}
+
+/* ------------------------------
+   Page spacing + typography
+--------------------------------*/
+
 body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
-  padding: 40px;
-  background: #fafafa;
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ------------------------------
+   Navigation
+--------------------------------*/
+
+nav {
+  margin: 2rem 0;
 }
 
 nav a {
-  margin-right: 20px;
-  color: #0070f3;
+  margin-right: 1.2rem;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -16,6 +83,44 @@ nav a:hover {
   text-decoration: underline;
 }
 
-h1 {
-  color: #333;
+/* ------------------------------
+   Project cards
+--------------------------------*/
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------------
+   Footer
+--------------------------------*/
+
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  text-align: center;
+  opacity: 0.7;
 }
