@@ -412,3 +412,45 @@ button,
 [role="button"] {
     will-change: transform;
 }
+/* Additions for a highly readable About page */
+.logo-link {
+    color: var(--text); 
+    font-weight: 600;
+}
+
+.about-header h1 {
+    font-size: 40px;
+    margin-bottom: var(--space-2);
+}
+
+.lead {
+    font-size: 18px;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.about-section {
+    margin-top: var(--space-4);
+}
+
+.about-section h2 {
+    font-size: 24px;
+    margin-bottom: var(--space-2);
+    color: var(--primary); /* subtle tint to break up sections */
+}
+
+.about-section p {
+    margin-bottom: var(--space-2);
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin: var(--space-4) 0;
+}
+
+.footer-subtext {
+    font-size: 12px;
+    margin-top: var(--space-1);
+}
