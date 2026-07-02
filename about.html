@@ -1,146 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About – Karel “Lordury” Durovic</title>
+    <meta name="color-scheme" content="dark light">
+
+    <title>About – Karel “LorDury” Durovic</title>
+
+    <meta name="description"
+        content="Learn more about Karel Durovic (LorDury) — IT technician, automation engineer, AI coach, and 3D printing enthusiast.">
+
+    <!-- PicoCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ============================
-         Header / Navigation
-    ============================= -->
+    <!-- ========================= -->
+    <!-- Navigation -->
+    <!-- ========================= -->
     <header class="site-header">
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="index.html" class="logo-link">Lordury</a>
-                </div>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="ai-coaching.html">AI Coaching</a></li>
-                    <li><a href="3d-printing.html">3D Printing</a></li>
-                    <li><a class="active" href="about.html">About</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <strong>LorDury</strong>
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="ai.html">AI Coaching</a></li>
+                <li><a href="printing.html">3D Printing</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- ============================
-         Main Content
-    ============================= -->
-    <main class="container">
-        <article class="about-preview">
+    <main>
 
-            <!-- Intro Header Section -->
-            <header class="about-header">
-                <h1>About Me</h1>
-                <p class="lead">
-                    I'm Karel Durovic, also known online as <strong>Lordury</strong> — 
+        <!-- ========================= -->
+        <!-- About Core Intro -->
+        <!-- ========================= -->
+        <section class="container about-preview">
+            <article>
+                <header>
+                    <p class="eyebrow">Behind the Automation</p>
+                    <h1 style="margin-bottom: 0;">About Me</h1>
+                </header>
+
+                <p class="hero-text">
+                    I'm Karel Durovic, also known online as <strong>LorDury</strong> — 
                     an IT technician, automation enthusiast, AI coach, and occasional 3D printing tinkerer.
                 </p>
-            </header>
 
-            <hr class="separator">
+                <blockquote>
+                    "Most of my interests revolve around systems — whether it’s a game, a workflow, a city, or a machine. 
+                    I like understanding how things fit together and how small changes can improve the whole."
+                </blockquote>
+            </article>
+        </section>
 
-            <!-- Personal Story -->
-            <section class="about-section">
-                <h2>Personal Story</h2>
-                <p>
-                    I live in Jinočany and work in Holešovice, Prague, currently at Accenture as an IT technician. 
-                    My path has always been about making things work a bit smoother — whether it’s computers, 
-                    workflows, or everyday routines. I like practical solutions, clear explanations, and tools 
-                    that actually help people instead of impressing them with buzzwords.
-                </p>
-                <p>
-                    Outside of work, life is happily busy: my spouse is on maternity leave, and we have two daughters — 
-                    one starting school and one newborn. So yes, there’s a lot of noise, a lot of love, and not a lot of sleep.
-                </p>
-            </section>
+        <!-- ========================= -->
+        <!-- Personal & Work Details -->
+        <!-- ========================= -->
+        <section class="container">
+            <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                
+                <!-- Personal Story -->
+                <article class="feature-card">
+                    <h3>Personal Story</h3>
+                    <p>
+                        I live in Jinočany and work in Holešovice, Prague, currently at Accenture as an IT technician. 
+                        My path has always been about making things work a bit smoother — whether it’s computers, 
+                        workflows, or everyday routines. 
+                    </p>
+                    <p>
+                        Outside of work, life is happily busy: my spouse is on maternity leave, and we have two daughters — 
+                        one starting school and one newborn. So yes, there’s a lot of noise, a lot of love, and not a lot of sleep.
+                    </p>
+                </article>
 
-            <!-- Work & Focus -->
-            <section class="about-section">
-                <h2>Work & Focus</h2>
-                <p>
-                    Professionally, I’m an IT technician working mostly in Windows environments. I focus on troubleshooting, 
-                    support, and optimizing workflows so that people spend less time fighting their tools and more time 
-                    doing actual work.
-                </p>
-                <p>Over time, I’ve shifted more and more towards automation and scripting:</p>
-                <ul class="focus-list">
-                    <li>BAT scripting and PowerShell for everyday IT tasks</li>
-                    <li>Python for automation and small utilities (including PyAutoGUI)</li>
-                    <li>Power Automate and Power Apps for building practical, low‑cost solutions</li>
-                </ul>
-                <p>
-                    My main philosophy is simple: <strong>automation should be accessible</strong>. I try to focus on solutions 
-                    that can be achieved for free or at a budget‑friendly price, so that individuals and smaller teams can 
-                    benefit without needing enterprise budgets.
-                </p>
-            </section>
+                <!-- Work & Focus -->
+                <article class="feature-card">
+                    <h3>Work & Focus</h3>
+                    <p>
+                        Professionally, I focus on troubleshooting, support, and optimizing workflows so that people spend less time fighting their tools. Over time, I’ve shifted more towards automation and scripting:
+                    </p>
+                    <ul class="focus-list" style="padding-left: var(--pico-spacing); margin-top: 0.5rem;">
+                        <li>BAT scripting and PowerShell for everyday IT tasks</li>
+                        <li>Python for automation and small utilities (including PyAutoGUI)</li>
+                        <li>Power Automate and Power Apps for low‑cost solutions</li>
+                    </ul>
+                    <p>
+                        My philosophy is simple: <strong>automation should be accessible</strong> without needing enterprise budgets.
+                    </p>
+                </article>
 
-            <!-- AI Coaching -->
-            <section class="about-section">
-                <h2>AI Coaching</h2>
-                <p>
-                    I also work as an AI coach, helping people understand and use AI tools in a practical way. My main topics are:
-                </p>
-                <ul class="focus-list">
-                    <li>Microsoft Copilot 365 in everyday work</li>
-                    <li>Agentic AI workflows and how to think in terms of tasks and agents</li>
-                    <li>Introductory AI concepts for people who are curious but not technical</li>
-                </ul>
-                <p>
-                    I prefer a down‑to‑earth approach: no hype, no fear, just clear examples and realistic expectations. 
-                    The goal is to make AI feel like a helpful colleague, not a mysterious black box.
-                </p>
-            </section>
+            </div>
+        </section>
 
-            <!-- Interests -->
-            <section class="about-section">
-                <h2>Interests</h2>
-                <p>When I’m not fixing something or automating it, I enjoy:</p>
-                <ul class="focus-list">
-                    <li>Strategy games and MOBA games — thinking, planning, reacting</li>
-                    <li>3D modeling and 3D printing experiments, including both useful prints and glorious failures</li>
-                    <li>Running several YouTube channels and experimenting with content</li>
-                    <li>History, political and demographical issues and public behavior</li>
-                </ul>
+        <!-- ========================= -->
+        <!-- AI Coaching & Deep Dive -->
+        <!-- ========================= -->
+        <section class="container">
+            <article>
+                <h2>AI Coaching Focus</h2>
                 <p>
-                    Most of my interests revolve around systems — whether it’s a game, a workflow, a city, or a machine. 
-                    I like understanding how things fit together and how small changes can improve the whole. Small details can make a huge difference.
+                    I work as an AI coach, helping people understand and use tools in a practical way. 
+                    I prefer a down‑to‑earth approach: no hype, no fear, just clear examples. The main tracks include:
                 </p>
-            </section>
+                <div class="badges" style="margin-bottom: 1.5rem;">
+                    <span>Microsoft Copilot 365</span>
+                    <span>Agentic AI Workflows</span>
+                    <span>Task-Agent Mental Frameworks</span>
+                    <span>Introductory Concepts for Non-Techies</span>
+                </div>
+            </article>
+        </section>
 
-            <!-- Values & Convictions -->
-            <section class="about-section">
-                <h2>Values & Convictions</h2>
-                <p>
-                    My main moral foundation comes from Christianity. It shapes how I think about responsibility, honesty, 
-                    and how we treat other people. I don’t try to push this on anyone, but it quietly guides how I work, 
-                    how I communicate, and how I make decisions.
-                </p>
-                <p>
-                    In practice, this means I try to stay humble, avoid pretending I know everything, and focus on being 
-                    genuinely helpful. Whether it’s through automation, AI coaching, or a simple script that saves someone 
-                    a few minutes every day — it all counts.
-                </p>
-            </section>
+        <!-- ========================= -->
+        <!-- Interests & Convictions -->
+        <!-- ========================= -->
+        <section class="container">
+            <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                
+                <!-- Interests -->
+                <article class="feature-card">
+                    <div class="card-icon">🎮</div>
+                    <h3>Interests</h3>
+                    <ul class="focus-list" style="padding-left: var(--pico-spacing); margin-bottom: 0;">
+                        <li>Strategy and MOBA games</li>
+                        <li>3D modeling & 3D printing experiments</li>
+                        <li>Running and scaling YouTube channels</li>
+                        <li>History, demographics, and public behavior</li>
+                    </ul>
+                </article>
 
-        </article>
+                <!-- Values -->
+                <article class="feature-card">
+                    <div class="card-icon">⚓</div>
+                    <h3>Values & Convictions</h3>
+                    <p>
+                        My main moral foundation comes from Christianity. It shapes how I think about responsibility, honesty, 
+                        and how we treat other people. 
+                    </p>
+                    <p>
+                        In practice, this means I try to stay humble, avoid pretending I know everything, and focus on being 
+                        genuinely helpful. Every saved minute counts.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- ============================
-         Footer
-    ============================= -->
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
     <footer class="site-footer">
         <div class="container">
-            <p>© 2026 Karel “Lordury” Durovic — MIT licensed.</p>
-            <p class="footer-subtext">Built on practical tools, budget‑friendly automation, and a bit of faith.</p>
+            <p>
+                Built with HTML, PicoCSS, coffee, and occasional frustration.
+            </p>
+            <p>
+                © 2026 Karel Durovic "LorDury" - MIT license cause I am not here to fight the lawyers.
+            </p>
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
