@@ -81,20 +81,27 @@
             </div>
         </section>
 
-        <section class="container">
-            <header>
-                <h2>Live Gallery</h2>
+        <section class="container gallery-panel">
+            <header class="gallery-header">
+                <div>
+                    <h2>Live Gallery</h2>
+                    <p class="gallery-intro">
+                        Browse current projects and model previews directly from the 3D models folder. Expand any
+                        category to reveal its photos, videos, and files.
+                    </p>
+                </div>
+                <div class="gallery-controls">
+                    <button id="expand-all" type="button">Expand all</button>
+                    <button id="collapse-all" type="button" class="secondary">Collapse all</button>
+                </div>
             </header>
 
-            <div class="gallery">
-                <img src="3D%20model%20photos%20and%20videos/IMG20241209065642.jpg" alt="3D print model example">
-                <img src="3D%20model%20photos%20and%20videos/IMG20241214142138.jpg" alt="3D print prototype design">
-                <img src="3D%20model%20photos%20and%20videos/IMG20241224100058.jpg" alt="3D printed custom accessory">
-                <video controls>
-                    <source src="3D%20model%20photos%20and%20videos/VID20241207112650.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div id="model-gallery" class="model-gallery" aria-live="polite">
+                <div class="loading">Loading gallery…</div>
             </div>
+            <noscript>
+                <p class="gallery-noscript">JavaScript is required to load the live gallery. Run the gallery generator and serve the site from a web server.</p>
+            </noscript>
         </section>
 
         <section class="container">
@@ -156,6 +163,7 @@
         </div>
     </footer>
 
+    <script src="gallery.js" defer></script>
 </body>
 
 </html>
