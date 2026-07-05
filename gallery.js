@@ -7,10 +7,18 @@ function createGalleryItem(entry) {
   article.className = 'gallery-item';
 
   if (entry.kind === 'image') {
+    const thumbLink = document.createElement('a');
+    thumbLink.href = entry.path;
+    thumbLink.target = '_blank';
+    thumbLink.rel = 'noopener';
+    thumbLink.className = 'gallery-item-thumb-link';
+
     const image = document.createElement('img');
     image.src = entry.path;
     image.alt = entry.name;
-    article.appendChild(image);
+    image.className = 'gallery-item-thumbnail';
+    thumbLink.appendChild(image);
+    article.appendChild(thumbLink);
   } else if (entry.kind === 'video') {
     const video = document.createElement('video');
     video.src = entry.path;

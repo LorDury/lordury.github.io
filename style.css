@@ -544,6 +544,22 @@ button:hover,
     background: var(--bg);
 }
 
+.gallery-item-thumbnail {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.gallery-item-thumb-link {
+    display: block;
+    overflow: hidden;
+}
+
+.gallery-item-thumb-link:hover .gallery-item-thumbnail {
+    transform: scale(1.03);
+}
+
 .gallery-item img {
     height: auto;
     object-fit: contain;
