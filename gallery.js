@@ -1,6 +1,7 @@
 const galleryContainer = document.getElementById('model-gallery');
 const expandAllButton = document.getElementById('expand-all');
 const collapseAllButton = document.getElementById('collapse-all');
+const refreshButton = document.getElementById('refresh-gallery');
 
 function createGalleryItem(entry) {
   const article = document.createElement('article');
@@ -177,6 +178,7 @@ function toggleAll(open) {
 
 async function initGallery() {
   try {
+    galleryContainer.innerHTML = '<div class="loading">Loading gallery…</div>';
     const response = await fetch('gallery-data.json');
     if (!response.ok) {
       throw new Error(`Failed to fetch gallery data: ${response.status}`);
@@ -191,5 +193,6 @@ async function initGallery() {
 
 expandAllButton.addEventListener('click', () => toggleAll(true));
 collapseAllButton.addEventListener('click', () => toggleAll(false));
+refreshButton.addEventListener('click', () => initGallery());
 
 initGallery();
