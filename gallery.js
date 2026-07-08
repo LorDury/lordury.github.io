@@ -1,7 +1,6 @@
 const galleryContainer = document.getElementById('model-gallery');
 const expandAllButton = document.getElementById('expand-all');
 const collapseAllButton = document.getElementById('collapse-all');
-const refreshButton = document.getElementById('refresh-gallery');
 
 function createGalleryItem(entry) {
   const article = document.createElement('article');
@@ -193,6 +192,5 @@ async function initGallery() {
 
 expandAllButton.addEventListener('click', () => toggleAll(true));
 collapseAllButton.addEventListener('click', () => toggleAll(false));
-refreshButton.addEventListener('click', () => initGallery());
 
 initGallery();
