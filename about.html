@@ -36,6 +36,7 @@
                 <li><a class="active" href="about.html">About</a></li>
             </ul>
         </nav>
+
     </header>
 
     <main>
@@ -45,6 +46,9 @@
         <!-- ========================= -->
         <section class="container about-preview">
             <article>
+                <div class="profile-photo-wrap profile-photo-inline" aria-label="Profile photo">
+                    <img class="profile-photo" src="Branding/LorDury Profile.png" alt="Karel Durovic portrait">
+                </div>
                 <header>
                     <p class="eyebrow">Behind the Automation</p>
                     <h1 style="margin-bottom: 0;">About Me</h1>
@@ -199,5 +203,18 @@
             </p>
         </div>
     </footer>
+    <script>
+        const banner = document.querySelector('.site-banner');
+        if (banner) {
+            const fadeDistance = 220;
+            const updateBanner = () => {
+                const progress = Math.min(1, window.scrollY / fadeDistance);
+                banner.style.setProperty('--banner-opacity', String(Math.max(0, 1 - progress)));
+            };
+            updateBanner();
+            window.addEventListener('scroll', updateBanner, { passive: true });
+            window.addEventListener('resize', updateBanner);
+        }
+    </script>
 </body>
 </html>

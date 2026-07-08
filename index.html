@@ -25,7 +25,6 @@
     <!-- ========================= -->
 
     <header class="site-header">
-
         <nav class="container">
 
             <div class="logo">
@@ -46,6 +45,9 @@
 
         </nav>
 
+        <div class="site-banner" aria-label="LorDury banner">
+            <img src="Branding/LorDury Banner.png" alt="LorDury banner">
+        </div>
     </header>
 
     <main>
@@ -57,6 +59,10 @@
         <section class="hero container">
 
             <div class="hero-content">
+
+                <div class="profile-photo-wrap" aria-label="Profile photo">
+                    <img class="profile-photo" src="Branding/LorDury Profile.png" alt="Karel Durovic portrait">
+                </div>
 
                 <p class="eyebrow">
                     IT Technician • Automation Engineer • AI Coach
@@ -405,6 +411,20 @@ Mission accomplished.</code></pre>
         </div>
 
     </footer>
+
+    <script>
+        const banner = document.querySelector('.site-banner');
+        if (banner) {
+            const fadeDistance = 220;
+            const updateBanner = () => {
+                const progress = Math.min(1, window.scrollY / fadeDistance);
+                banner.style.setProperty('--banner-opacity', String(Math.max(0, 1 - progress)));
+            };
+            updateBanner();
+            window.addEventListener('scroll', updateBanner, { passive: true });
+            window.addEventListener('resize', updateBanner);
+        }
+    </script>
 
 </body>
 

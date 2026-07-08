@@ -15,6 +15,8 @@
 
     --primary: #58a6ff;
     --secondary: #1ad0c6;
+    --accent: #f2b632;
+    --accent-strong: #d98d1d;
 
     --border: rgba(255, 255, 255, 0.08);
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -87,46 +89,139 @@ a:hover {
 .site-header {
     position: sticky;
     top: 0;
-    background: rgba(13, 17, 23, 0.7);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    z-index: 100;
+    z-index: 120;
+    padding: 0 0 var(--space-3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    overflow: visible;
+    background: linear-gradient(180deg, rgba(8, 10, 15, 0.95) 0%, rgba(8, 10, 15, 0.65) 70%, rgba(8, 10, 15, 0.3) 100%);
 }
 
-nav {
+.site-banner {
+    position: relative;
+    z-index: 0;
+    overflow: auto;
+    pointer-events: visible;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: var(--space-2);
+    opacity: var(--banner-opacity, 1);
+    transition: opacity 0.2s ease-out;
+}
+
+.site-banner img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: fill;
+    object-position: center top;
+    margin: 0 auto;
+    filter: saturate(1.05) contrast(1.05) brightness(0.95);
+}
+
+.site-banner::after {
+    content: "";
+    position: relative;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 55%, rgba(13, 17, 23, 0.75) 100%);
+    pointer-events: none;
+}
+
+.site-header nav {
+    position: relative;
+    z-index: 130;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-2) 0;
+    gap: var(--space-3);
+    margin: var(--space-2) auto 0;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    background: rgba(11, 15, 21, 0.72);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-nav ul {
+.site-header nav ul {
     display: flex;
-    gap: var(--space-3);
+    gap: 8px;
     list-style: none;
 }
 
-nav a {
+.site-header .logo a {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 700;
+    background: rgba(242, 182, 50, 0.16);
+    border: 1px solid rgba(242, 182, 50, 0.28);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.site-header nav a {
     font-size: 14px;
-    color: var(--text-muted);
-    padding: 6px 10px;
-    border-radius: var(--radius-sm);
+    color: #f9f2e8;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid transparent;
     transition: 0.2s ease;
 }
 
-nav a:hover {
-    background: var(--bg-soft);
-    color: var(--text);
+.site-header nav a:hover {
+    background: rgba(242, 182, 50, 0.22);
+    color: #fff;
+    border-color: rgba(242, 182, 50, 0.35);
+    transform: translateY(-1px);
 }
 
-nav a.active {
-    color: var(--primary);
-    border-bottom: 2px solid var(--primary);
+.site-header nav a.active {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(242, 182, 50, 0.34), rgba(217, 141, 29, 0.55));
+    border-color: rgba(242, 182, 50, 0.5);
+    box-shadow: 0 6px 16px rgba(242, 182, 50, 0.18);
 }
 
 /* -------------------------
    4. Hero
 -------------------------- */
+
+.profile-photo-wrap {
+    width: 112px;
+    height: 112px;
+    margin-bottom: var(--space-3);
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, rgba(242, 182, 50, 0.95), rgba(217, 141, 29, 0.75));
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-photo-wrap:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.profile-photo-inline {
+    margin-bottom: var(--space-2);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    background: var(--bg-soft);
+    display: block;
+}
 
 .hero {
     display: grid;
@@ -646,8 +741,6 @@ button:hover,
         width: 100%;
         max-width: 100%;
     }
-}
-
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
