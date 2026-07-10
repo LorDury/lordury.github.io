@@ -596,6 +596,13 @@ button:hover,
     color: var(--text-muted);
 }
 
+.folder-description {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
 .folder-content {
     padding: 0 var(--space-3) var(--space-3);
 }
@@ -611,6 +618,35 @@ button:hover,
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-3);
     margin-top: var(--space-3);
+}
+
+.gallery-downloads {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.gallery-downloads h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.gallery-download-list {
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.gallery-download-item a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #7aa2ff;
+    text-decoration: underline;
+    text-decoration-color: rgba(122, 162, 255, 0.4);
 }
 
 .gallery-item {

@@ -1,16 +1,39 @@
 {
-  "generatedAt": "2026-07-08T19:54:52.510Z",
+  "generatedAt": "2026-07-10T15:37:46.643Z",
   "root": "3D model photos and videos/3D models",
   "items": [
     {
       "type": "folder",
+      "name": "Bathroom vent",
+      "description": "My first simple DIY design still works today. The fan’s gate sat too close to the front, so this cover fixed the ugly look.",
+      "items": [
+        {
+          "type": "file",
+          "name": "Bathroom vent after.jpg",
+          "path": "3D%20model%20photos%20and%20videos/3D%20models/Bathroom%20vent/Bathroom%20vent%20after.jpg",
+          "kind": "image",
+          "downloadable": false
+        },
+        {
+          "type": "file",
+          "name": "Bathroom vent before.jpg",
+          "path": "3D%20model%20photos%20and%20videos/3D%20models/Bathroom%20vent/Bathroom%20vent%20before.jpg",
+          "kind": "image",
+          "downloadable": false
+        }
+      ]
+    },
+    {
+      "type": "folder",
       "name": "Lithophane",
+      "description": "A small but meaningful project that helped me explore lighting, surface detail, and the way a 3D print can turn into a more emotional object when viewed up close.",
       "items": [
         {
           "type": "file",
           "name": "IMG20250620200944.jpg",
           "path": "3D%20model%20photos%20and%20videos/3D%20models/Lithophane/IMG20250620200944.jpg",
-          "kind": "image"
+          "kind": "image",
+          "downloadable": false
         }
       ]
     }

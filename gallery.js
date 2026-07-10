@@ -2,6 +2,28 @@ const galleryContainer = document.getElementById('model-gallery');
 const expandAllButton = document.getElementById('expand-all');
 const collapseAllButton = document.getElementById('collapse-all');
 
+function isDescriptionFile(entry) {
+  return entry.type === 'file' && ['description.txt', 'description.md'].includes(entry.name.toLowerCase());
+}
+
+function isDownloadableFile(entry) {
+  return entry.type === 'file' && (entry.downloadable || entry.kind === 'stl');
+}
+
+function createDownloadItem(entry) {
+  const item = document.createElement('li');
+  item.className = 'gallery-download-item';
+
+  const link = document.createElement('a');
+  link.href = entry.path;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = entry.name;
+
+  item.appendChild(link);
+  return item;
+}
+
 function createGalleryItem(entry) {
   const article = document.createElement('article');
   article.className = 'gallery-item';
@@ -55,6 +77,26 @@ function createGalleryItem(entry) {
   return article;
 }
 
+function renderDownloads(downloadEntries, parent) {
+  if (!downloadEntries.length) return;
+
+  const downloads = document.createElement('div');
+  downloads.className = 'gallery-downloads';
+
+  const heading = document.createElement('h4');
+  heading.textContent = 'Downloads';
+  downloads.appendChild(heading);
+
+  const list = document.createElement('ul');
+  list.className = 'gallery-download-list';
+  downloadEntries.forEach((entry) => {
+    list.appendChild(createDownloadItem(entry));
+  });
+
+  downloads.appendChild(list);
+  parent.appendChild(downloads);
+}
+
 function createSection(title, entries) {
   const section = document.createElement('div');
   section.className = 'gallery-section';
@@ -63,26 +105,52 @@ function createSection(title, entries) {
   heading.textContent = title;
   section.appendChild(heading);
 
-  const grid = document.createElement('div');
-  grid.className = 'gallery-grid';
+  const visibleEntries = entries.filter((entry) => entry.type === 'file' && !isDescriptionFile(entry) && !isDownloadableFile(entry));
+  const downloadEntries = entries.filter(isDownloadableFile);
 
-  entries.forEach((entry) => {
-    if (entry.type === 'file') {
+  if (visibleEntries.length) {
+    const grid = document.createElement('div');
+    grid.className = 'gallery-grid';
+    visibleEntries.forEach((entry) => {
       grid.appendChild(createGalleryItem(entry));
-    }
-  });
+    });
+    section.appendChild(grid);
+  }
 
-  section.appendChild(grid);
+  renderDownloads(downloadEntries, section);
   return section;
 }
 
 function renderItems(items, parent) {
+  const visibleEntries = [];
+  const downloadEntries = [];
+  const folders = [];
+
   items.forEach((item) => {
     if (item.type === 'folder') {
-      parent.appendChild(renderFolder(item));
+      folders.push(item);
+    } else if (isDescriptionFile(item)) {
+      return;
+    } else if (isDownloadableFile(item)) {
+      downloadEntries.push(item);
     } else {
-      parent.appendChild(createGalleryItem(item));
+      visibleEntries.push(item);
     }
+  });
+
+  if (visibleEntries.length) {
+    const grid = document.createElement('div');
+    grid.className = 'gallery-grid';
+    visibleEntries.forEach((entry) => {
+      grid.appendChild(createGalleryItem(entry));
+    });
+    parent.appendChild(grid);
+  }
+
+  renderDownloads(downloadEntries, parent);
+
+  folders.forEach((folder) => {
+    parent.appendChild(renderFolder(folder));
   });
 }
 
@@ -128,6 +196,13 @@ function renderFolder(folder) {
   badge.className = 'folder-badge';
   badge.textContent = `${countFiles(folder)} item(s)`;
   titleBlock.appendChild(badge);
+
+  if (folder.description) {
+    const description = document.createElement('p');
+    description.className = 'folder-description';
+    description.textContent = folder.description;
+    titleBlock.appendChild(description);
+  }
 
   summaryInfo.appendChild(titleBlock);
   summary.appendChild(summaryInfo);

@@ -6,6 +6,7 @@ const outputFile = path.join(__dirname, 'gallery-data.json');
 
 const imageExtensions = new Set(['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg']);
 const videoExtensions = new Set(['mp4', 'webm', 'mov', 'ogg']);
+const descriptionFileNames = new Set(['description.txt', 'description.md']);
 
 function fileKind(name) {
   const ext = path.extname(name).slice(1).toLowerCase();
@@ -18,6 +19,26 @@ function normalizePath(filePath) {
   return encodeURI(filePath.split(path.sep).join('/'));
 }
 
+async function readFolderDescription(directory) {
+  for (const fileName of descriptionFileNames) {
+    const descriptionPath = path.join(directory, fileName);
+
+    try {
+      const content = await fs.readFile(descriptionPath, 'utf8');
+      const trimmed = content.trim();
+      if (trimmed) {
+        return trimmed;
+      }
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        console.warn(`Could not read ${descriptionPath}: ${error.message}`);
+      }
+    }
+  }
+
+  return null;
+}
+
 async function scanDirectory(directory) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
   const items = [];
@@ -27,21 +48,28 @@ async function scanDirectory(directory) {
     const fullPath = path.join(directory, entry.name);
 
     if (entry.isDirectory()) {
+      const description = await readFolderDescription(fullPath);
       items.push({
         type: 'folder',
         name: entry.name,
+        description,
         items: await scanDirectory(fullPath),
       });
       continue;
     }
 
     if (entry.isFile()) {
+      const loweredName = entry.name.toLowerCase();
+      if (descriptionFileNames.has(loweredName)) continue;
+
       const relativePath = path.relative(__dirname, fullPath);
+      const isStl = loweredName.endsWith('.stl');
       items.push({
         type: 'file',
         name: entry.name,
         path: normalizePath(relativePath),
-        kind: fileKind(entry.name),
+        kind: isStl ? 'stl' : fileKind(entry.name),
+        downloadable: isStl,
       });
     }
   }

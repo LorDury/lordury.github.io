@@ -1,0 +1,1 @@
+A small but meaningful project that helped me explore lighting, surface detail, and the way a 3D print can turn into a more emotional object when viewed up close.
