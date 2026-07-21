@@ -55,6 +55,7 @@ html, body {
     color: var(--text);
     font-family: var(--font);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 a {
@@ -69,7 +70,7 @@ a:hover {
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--space-3);
+    padding: 0 clamp(1rem, 4vw, 2rem);
 }
 
 /* -------------------------
@@ -101,11 +102,10 @@ a:hover {
 
 .site-banner img {
     display: block;
-    width: 100%;
-    max-width: 100%;
+    width: min(100%, 1600px);
     height: auto;
-    max-height: 360px;
-    object-fit: fill;
+    max-height: clamp(180px, 24vw, 360px);
+    object-fit: cover;
     object-position: center top;
     margin: 0 auto;
     filter: saturate(1.05) contrast(1.05) brightness(0.95);
@@ -215,14 +215,14 @@ a:hover {
 
 .hero {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: var(--space-5);
-    padding: var(--space-6) 0;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
     align-items: center;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: clamp(2.2rem, 4.8vw, 3rem);
     line-height: 1.1;
 }
 
@@ -252,6 +252,7 @@ a:hover {
 .hero-buttons {
     margin-top: var(--space-4);
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-2);
 }
 
@@ -364,7 +365,7 @@ button:hover,
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: var(--space-3);
 }
 
@@ -393,7 +394,7 @@ button:hover,
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--space-3);
     margin-top: var(--space-4);
 }
@@ -592,6 +593,21 @@ button:hover,
     border-radius: var(--radius-sm);
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: var(--bg-soft);
+}
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: clamp(2rem, 5vw, 3rem) 0;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .terminal {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 720px) {
@@ -856,7 +872,17 @@ button:hover,
     }
 
     .hero h1 {
-        font-size: 36px;
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons a[role="button"] {
+        width: 100%;
+        text-align: center;
     }
 
     .profile-photo-wrap {
@@ -864,8 +890,19 @@ button:hover,
         height: 88px;
     }
 
-    .stats-grid {
+    .stats-grid,
+    .cards {
         grid-template-columns: 1fr;
+    }
+
+    .terminal pre {
+        padding: 1rem;
+        font-size: 12px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.35rem;
     }
 }
 
