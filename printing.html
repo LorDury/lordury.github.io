@@ -166,19 +166,7 @@
     </footer>
 
     <script src="gallery.js" defer></script>
-    <script>
-        const banner = document.querySelector('.site-banner');
-        if (banner) {
-            const fadeDistance = 220;
-            const updateBanner = () => {
-                const progress = Math.min(1, window.scrollY / fadeDistance);
-                banner.style.setProperty('--banner-opacity', String(Math.max(0, 1 - progress)));
-            };
-            updateBanner();
-            window.addEventListener('scroll', updateBanner, { passive: true });
-            window.addEventListener('resize', updateBanner);
-        }
-    </script>
+    <script src="banner.js"></script>
 </body>
 
 </html>
